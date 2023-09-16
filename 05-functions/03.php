@@ -17,10 +17,11 @@ $persons = [
     createPerson('Jane', 'Kane', '16'),
 ];
 
-foreach ($persons as $person)
-{
-    return $person;
+foreach ($persons as $person) {
+    if ($person->age >= 18) {
+        echo $person->name . ' ' . $person->surname . ' has reached the age of 18.' . PHP_EOL;
+    } else {
+        echo $person->name . ' ' . $person->surname . ' has not reached the age of 18.' . PHP_EOL;
+    }
 }
-
-echo $person();
 
