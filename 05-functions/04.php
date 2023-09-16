@@ -1,6 +1,6 @@
 <?php
 // Create a array of objects that uses the function of exercise 3 but in
-// loop printing out if the person has reached age of 18.
+// loop printing out if the person has reached age of 18
 
 function createPerson(string $name, string $surname, int $age): stdClass
 {

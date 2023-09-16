@@ -3,7 +3,7 @@
 // Create a for loop that iterates non-associative array using php in-built function
 // that determines count of elements in the array. Create a function that doubles the integer number.
 // Within the loop using php in-built function print out the double of the number value
-// (using your custom function).
+// (using your custom function)
 
 // Create a non-associative array with mixed data types
 $array = [5, 8, 10, 3.5, "Hello"];

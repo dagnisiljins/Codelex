@@ -5,7 +5,7 @@
 // otherwise its 1 euro. Using foreach loop print out the values of the fruits and how much it
 // would cost to ship this product.
 
-// Create a 2D associative array of fruits and their weights
+// Create a 2D associative array of fruits and their weights.
 $fruits = [
     ["name" => "Apple", "weight" => 5],
     ["name" => "Banana", "weight" => 11],
