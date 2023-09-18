@@ -6,7 +6,9 @@
 // type cast - nomaina datu tipu
 
 $apple = 'dzidrais';
-function peel(string $apple, int $size = 10, float $kautkas = 4.5): string // neradzamie ir neobligātie elementi, kurus var mainīt
+function peel(string $apple, int $size, float $kautkas = 4.5): string // neobligātie elementus izveido
+// liekot '='un vērtību, tos būtu jāliek beigās, citādi liekot argumentus vajadzēs likt arī neobligātajam,
+// bet ja pēc neobligātā neseko obligāts elements, tad var nelikt vērtību
 {
     if ($size == 10) {
         return 'slikts ābols';

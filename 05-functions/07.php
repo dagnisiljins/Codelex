@@ -24,9 +24,9 @@ class Person
         if (in_array($gun->license, $this->licenses)) {
             // Check if the person has enough cash to buy the gun
             if ($this->cash >= $gun->price) {
-                return true; // Person can buy the gun
+                return true;
             } else {
-                return false; // Person does not have enough cash
+                return false;
             }
         } else {
             return false; // Person does not have the required license
