@@ -12,10 +12,11 @@ while (true) {
 
     if (!is_numeric($guess)) { //tiek pārbaudīts vai navievadīts skaitlis
         echo "Invalid input. Please enter a valid number or 'codelex' to quit." . PHP_EOL;
-        continue; // Tiek izlaists cikls un sākts no sākuma
+        continue; // Tiek izlaists cikls un sākts no sākuma.
     }
 
-    $guess = (int)$guess; // Convert the user's input to an integer
+    //$guess = (int)$guess; // Ievadītā vērtība tiek nonvertēta uz integeru (int), jo readline ierakstītais ir strings
+    // un lai salīdzinātu nepieciešams pārvērst par int.
 
     if ($guess == $randomNumber) {
         echo "Congratulations! You guessed it right. The number was $randomNumber." . PHP_EOL;
