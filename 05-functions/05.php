@@ -5,7 +5,7 @@
 // otherwise its 1 euro. Using foreach loop print out the values of the fruits and how much it
 // would cost to ship this product.
 
-// Create a 2D associative array of fruits and their weights.
+
 $fruits = [
     ["name" => "Apple", "weight" => 5],
     ["name" => "Banana", "weight" => 11],
@@ -13,20 +13,20 @@ $fruits = [
     ["name" => "Grapes", "weight" => 20],
 ];
 
-// Function to determine the shipping cost based on weight
+
 function calculateShippingCost($weight)
 {
     if ($weight > 10) {
-        return 2; // Shipping cost for weight over 10 kg is 2 euros
+        return 2;
     } else {
-        return 1; // Shipping cost for weight 10 kg or less is 1 euro
+        return 1;
     }
 }
 
-// Create an array to store shipping costs for each fruit
-$shippingCosts = [];
 
-// Calculate and store shipping costs for each fruit
+$shippingCosts = []; // Array where to store costs
+
+
 foreach ($fruits as $fruit) {
     $name = $fruit["name"];
     $weight = $fruit["weight"];
