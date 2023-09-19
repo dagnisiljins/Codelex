@@ -12,7 +12,7 @@ const OVERTIME_RATE = 1.5;
 // Function to calculate total pay or print an error
 function calculateTotalPay($basePay, $hoursWorked) {
 
-    // Check if base pay is less than the minimum wage
+    // Check if base pay is less than the minimum wage, and calculates wage according to minimum rate
     if ($basePay < MINIMUM_WAGE) {
         $totalPay = MINIMUM_WAGE * $hoursWorked;
         echo "Error: Base pay is less than the minimum wage ($" . MINIMUM_WAGE . " per hour). 
@@ -41,7 +41,7 @@ function calculateTotalPay($basePay, $hoursWorked) {
     echo "Total pay: $" . number_format($totalPay, 2) . PHP_EOL;
 }
 
-// Main method
+
 echo "Employee 1:" . PHP_EOL;
 calculateTotalPay(7.50, 35);
 
