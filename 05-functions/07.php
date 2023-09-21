@@ -50,7 +50,7 @@ class Gun
 
 $licencetype = readline('What is your first licence type (A, B, C):');
 $licencetypetwo = readline('What is your second licence type (A, B, C):');
-$licencetypethree = readline('What is your third licence type (A, B, C):');
+$licencetypethree = readline('What is your third licence type (A, B, C):');// Paskatīties explode, lai vienā ieliktu uzreiz vairākas licences
 
 $cashonhand = readline('How much cash do you have with you: ');
 
