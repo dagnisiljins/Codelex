@@ -21,11 +21,11 @@ $computerSelection = array_rand($elements);
 
 echo in_array($computerSelection, $elements[$userSelection]);
 
+//if for example $computerSelection is 'pumpkin' and in array $elements under element with key 'children' (which is users selected element) is element 'pumpkin',then function returns 'true' and echo 'User wins'
+
 if ($userSelection === $computerSelection) {
     echo 'It\'s a tie';
-} elseif (in_array($computerSelection, $elements[$userSelection])) { //if for example $computerSelection is 'pumpkin'
-    // and in array $elements under element with key 'children' (which is users selected element) is element 'pumpkin',
-    // then function returns 'true' and echo 'User wins'
+} elseif (in_array($computerSelection, $elements[$userSelection])) {
     echo 'User wins';
 } else {
     echo 'Computer wins';
