@@ -2,7 +2,7 @@
 
 
 
-    // Static method to calculate the area of a circle
+    // Function to calculate the area of a circle
     function calculateCircleArea($radius) {
         if ($radius < 0) {
             return "Error: Negative radius not allowed!";
@@ -10,7 +10,7 @@
         return M_PI * $radius * $radius; //In place M_PI can use pi()
     }
 
-    // Static method to calculate the area of a rectangle
+    // Function to calculate the area of a rectangle
     function calculateRectangleArea($length, $width) {
         if ($length < 0 || $width < 0) {
             return "Error: Negative length or width not allowed!";
@@ -18,7 +18,7 @@
         return $length * $width;
     }
 
-    // Static method to calculate the area of a triangle
+    // Function to calculate the area of a triangle
     function calculateTriangleArea($base, $height) {
         if ($base < 0 || $height < 0) {
             return "Error: Negative base or height not allowed!";
