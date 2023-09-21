@@ -9,7 +9,7 @@
 //Your program must accept metric units.
 
 function calculateBMI($weight, $height) {
-    if ($weight <= 0 || $height <= 0) { //pārbaude, vai ievadītas derīgas vērtības
+    if ($weight <= 0 || $height <= 0) { //checking if values ar valid, bigger then 0
         return -1;
     }
     $bmi = $weight / ($height * $height);

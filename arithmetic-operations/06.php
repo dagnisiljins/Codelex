@@ -17,7 +17,7 @@ for ($i = 1; $i <= 110; $i++) {
         $output .= "Woza";
     }
 
-    echo empty($output) ? $i : $output;
+    echo empty($output) ? $i : $output; //Short version
 
     //if (empty($output)) {
       //  echo $i;

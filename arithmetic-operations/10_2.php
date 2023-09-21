@@ -1,9 +1,9 @@
 <?php
-//
 
-class Geometry {
+
+
     // Static method to calculate the area of a circle
-    public static function calculateCircleArea($radius) {
+    function calculateCircleArea($radius) {
         if ($radius < 0) {
             return "Error: Negative radius not allowed!";
         }
@@ -11,7 +11,7 @@ class Geometry {
     }
 
     // Static method to calculate the area of a rectangle
-    public static function calculateRectangleArea($length, $width) {
+    function calculateRectangleArea($length, $width) {
         if ($length < 0 || $width < 0) {
             return "Error: Negative length or width not allowed!";
         }
@@ -19,13 +19,13 @@ class Geometry {
     }
 
     // Static method to calculate the area of a triangle
-    public static function calculateTriangleArea($base, $height) {
+    function calculateTriangleArea($base, $height) {
         if ($base < 0 || $height < 0) {
             return "Error: Negative base or height not allowed!";
         }
         return 0.5 * $base * $height;
     }
-}
+
 
 // Function to display the menu
 function displayMenu() {
@@ -46,21 +46,21 @@ while (true) {
         case 1:
             echo "Enter the radius of the circle: ";
             $radius = readline();
-            echo "Area of the circle: " . Geometry::calculateCircleArea($radius) . PHP_EOL;
+            echo "Area of the circle: " . calculateCircleArea($radius) . PHP_EOL;
             break;
         case 2:
             echo "Enter the length of the rectangle: ";
             $length = readline();
             echo "Enter the width of the rectangle: ";
             $width = readline();
-            echo "Area of the rectangle: " . Geometry::calculateRectangleArea($length, $width) . PHP_EOL;
+            echo "Area of the rectangle: " . calculateRectangleArea($length, $width) . PHP_EOL;
             break;
         case 3:
             echo "Enter the base of the triangle: ";
             $base = readline();
             echo "Enter the height of the triangle: ";
             $height = readline();
-            echo "Area of the triangle: " . Geometry::calculateTriangleArea($base, $height) . PHP_EOL;
+            echo "Area of the triangle: " . calculateTriangleArea($base, $height) . PHP_EOL;
             break;
         case 4:
             echo "Goodbye!" . PHP_EOL;
