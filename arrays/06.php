@@ -10,7 +10,7 @@ $words = ["codelex", "computer", "programming", "hangman", "learning"]; // List 
 
 while (true) {
     $chosenWord = $words[array_rand($words)]; // Randomly choose a word from the list
-    $wordLength = strlen($chosenWord);
+    $wordLength = strlen($chosenWord); //checks length of chosen word
     $attempts = 6; // Number of allowed wrong answers
 
     $guessedWord = str_repeat("_ ", $wordLength); // Initialize the guessed word with underscores
@@ -23,7 +23,7 @@ while (true) {
     while ($attempts > 0) {
         $guess = readline("Guess a letter: ");
 
-        if (strlen($guess) !== 1 || !ctype_alpha($guess)) {
+        if (strlen($guess) !== 1 || !ctype_alpha($guess)) { //Checks if entered 1 character and if its alphabetic character (letter)
             echo "Please enter a single letter.\n";
             continue;
         }
