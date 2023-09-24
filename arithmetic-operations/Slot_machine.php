@@ -18,6 +18,8 @@ O O O X
 O O O O
 (Prize amount = Element points * 4 * 2 * 100).
 
+!! If you have a several winning combinations, then points are added together.
+
 */
 
 // Define the maximum number of rows and columns
@@ -61,6 +63,8 @@ function displayBoard(array $board)
 // Function to check for a winning combination in rows (horizontal)
 function checkRows(array $board, array $elements)
 {
+    $sumOfPoints = 0; // Testam
+
     // Check for 3 identical elements in a row with 1 identical element below last element in row
     for ($row = 0; $row < count($board) - 1; $row++) {
         for ($column = 0; $column < count($board[$row]); $column++) {
@@ -72,23 +76,24 @@ function checkRows(array $board, array $elements)
                 //$element === $board[$row][$column + 3] &&
                 $element === $board[$row + 1][$column + 3] //This condition checks if the current element is identical to the element directly below and 3 position to the right.
             ) {
-                return $elements[$element] * 4 * 2; // Points for 4 identical elements
+                //return $elements[$element] * 4 * 2; // Points for 4 identical elements
+                $sumOfPoints += $elements[$element] * 4 *2;
             }
         }
     }
 
-    $points = 0; // Initialize points
+    //$totalPoints = 0; // Initialize points
     foreach ($board as $row) {
         $rowString = implode('', $row);
         foreach ($elements as $element => $pointsPerElement) {
             $pattern = "/$element{4,}/"; // Checks if 4 elements in row is identical
             if (preg_match($pattern, $rowString)) {
-                return $pointsPerElement * 4; //Points per element multiplied with elements count in row
+                $sumOfPoints += $pointsPerElement * 4; //Points per element multiplied with elements count in row
             }
         }
     }
 
-    return 0; // No winning row
+    return $sumOfPoints;
 }
 
 // Function to play a game
@@ -98,7 +103,7 @@ function playGame(array $elements, int $maxRows, int $maxColumns, int $startMone
     displayBoard($board);
 
     $rowPoints = checkRows($board, $elements);
-    $totalPoints = $rowPoints;
+    // $totalPoints = $rowPoints;
 
     echo "Points for winning combination: $rowPoints" . PHP_EOL;
 
