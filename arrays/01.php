@@ -8,7 +8,7 @@ $numbers = [
 
 echo "Original numeric array: ";
 echo implode(', ', $numbers); // Display the original numeric array
-echo PHP_EOL; // Add a line break for clarity
+echo PHP_EOL;
 
 sort($numbers); // Sort the numeric array
 
@@ -27,10 +27,10 @@ $words = [
 
 echo "Original string array: ";
 echo implode(', ', $words); // Display the original string array
-echo PHP_EOL; // Add a line break for clarity
+echo PHP_EOL;
 
 sort($words); // Sort the string array
 
 echo "Sorted string array: ";
 echo implode(', ', $words); // Display the sorted string array
-echo PHP_EOL; // Add a line break for clarity
+echo PHP_EOL;
