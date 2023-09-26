@@ -1,5 +1,5 @@
 <?php
-// Lekciju laikā izveidotais variants
+// Lekciju laikā izveidotais variants - īsais variants
 
 $episodes = json_decode(file_get_contents('https://rickandmortyapi.com/api/episode'));
 

@@ -1,6 +1,6 @@
 <?php
 
-// visas epizodes
+// visas epizodes - pievērst uzmanību curl_setopt!!
 function fetchEpisodeNames($url) {
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
