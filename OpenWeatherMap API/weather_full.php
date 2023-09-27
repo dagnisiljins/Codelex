@@ -20,7 +20,7 @@ function getWeatherData($city) {
             $temperature = $weatherData->main->temp;
             $humidity = $weatherData->main->humidity;
             $pressure = $weatherData->main->pressure;
-            //$dewPoint = $weatherData->main->dew_point;
+            //$dewPoint = $weatherData->main->dew_point; //
             $clouds = $weatherData->clouds->all;
             $visibility = $weatherData->visibility;
             $windSpeed = $weatherData->wind->speed;

@@ -6,7 +6,7 @@ $elements = [
     'pumpkin' => ['ghost'],
     'ghost' => ['children'],
     'ghostbuster' => ['ghost', 'pumpkin']
-]; //
+];
 
 //array_keys is used to dynamically generate the list of valid elements for user selection
 $userSelection = readline('Enter element: ' . implode(', ', array_keys($elements)) . ': '); //with php function implode() it is possible to concatenate (join) elements of an array into a single string, with each element separated by a specified delimiter.
