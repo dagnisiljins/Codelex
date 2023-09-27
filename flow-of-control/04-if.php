@@ -6,7 +6,7 @@ Use:
  */
 
 
-$dayNumber = readline('Please enter a day number from 0-6 (0 is sunday): '); // Change this value to test different day numbers
+$dayNumber = readline('Please enter a day number from 0-6 (0 is sunday): ');
 
 if ($dayNumber >= 0 && $dayNumber <= 6) {
 
