@@ -7,7 +7,7 @@ function getWeatherData($city) {
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    curl_setopt($ch, CURLOPT_CAINFO, 'C:/CA certificates/cacert.pem'); //manuāli lieku visu rindu, citādi rāda ssl error
+    curl_setopt($ch, CURLOPT_CAINFO, 'C:/CA certificates/cacert.pem'); //manuāli jāpievieno norāde uz cacert.pem citādi metas error
 
     $response = curl_exec($ch);
     curl_close($ch);

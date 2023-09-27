@@ -2,9 +2,10 @@
 // The keys of the associative array ('rock,' 'scissors,' and 'paper') represent the player's choice.
 //The values associated with each key are arrays containing the choices that the key can defeat.
 $elements = [
-    'children' => ['pumpkin'],
+    'children' => ['ghostbuster'],
     'pumpkin' => ['ghost'],
-    'ghost' => ['children']
+    'ghost' => ['children'],
+    'ghostbuster' => ['ghost', 'pumpkin']
 ]; //
 
 //array_keys is used to dynamically generate the list of valid elements for user selection
@@ -24,10 +25,13 @@ echo in_array($computerSelection, $elements[$userSelection]);
 //if for example $computerSelection is 'pumpkin' and in array $elements under element with key 'children' (which is users selected element) is element 'pumpkin',then function returns 'true' and echo 'User wins'
 
 if ($userSelection === $computerSelection) {
-    echo 'It\'s a tie';
+    echo 'It\'s a tie!' . PHP_EOL ;
+    echo 'Computer selected: ' . $computerSelection;
 } elseif (in_array($computerSelection, $elements[$userSelection])) {
-    echo 'User wins';
+    echo 'User wins!' . PHP_EOL;
+    echo 'Computer selected: ' . $computerSelection;
 } else {
-    echo 'Computer wins';
+    echo 'Computer wins' . PHP_EOL;
+    echo 'Computer selected: ' . $computerSelection;
 }
 

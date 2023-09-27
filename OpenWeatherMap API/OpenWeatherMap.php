@@ -1,11 +1,10 @@
 <?php
-// Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
+// API key
 $apiKey = '7fd721dcb1e380f1092d7e8300f3857d';
 
-// Read the city name from the user
 $city = readline("Enter the city name: ");
 
-// Construct the API URL
+// Construct the API URL - city and key elements
 $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey";
 
 // Initialize cURL session
