@@ -1,5 +1,5 @@
 <?php
-//Use just for Latvian cities
+//Use just for Latvian cities or change $country = code
 
 
     $city = readline('Enter your city: ');
