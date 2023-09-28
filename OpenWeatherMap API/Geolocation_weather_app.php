@@ -5,7 +5,7 @@
     $city = readline('Enter your city: ');
     $state = null; // Optional state code (only for the US)
     $country = 'lv'; // (use ISO 3166 country codes)
-    $apiKey = '7fd721dcb1e380f1092d7e8300f3857d'; // Replace with your OpenWeatherMap API key
+    $apiKey = '7fd721dcb1e380f1092d7e8300f3857d';
 
     // Geocoding API to fetch coordinates
     $geoUrl = "http://api.openweathermap.org/geo/1.0/direct?q=$city,$state,$country&limit=5&appid=$apiKey";
@@ -21,7 +21,7 @@
             $longitude = $geoData[0]->lon;
 
             // API request
-            //$exclude = 'minutely,hourly,daily,alerts'; // Exclude unwanted data
+            //$exclude = 'minutely,hourly,daily,alerts';
             $oneCallUrl = "https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey";
             $oneCallResponse = file_get_contents($oneCallUrl);
 
@@ -72,7 +72,7 @@
                     echo "Min Temperature: " . round($tempMin - 273.15, 2) . "°C\n";
                     echo "Max Temperature: " . round($tempMax - 273.15, 2) . "°C\n";
                     echo "Pressure: $pressure hPa\n";
-                    echo "Humidity: $humidity%\n";
+                    echo "Humidity: $humidity %\n";
                 }
 
 

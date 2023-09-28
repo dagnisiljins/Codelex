@@ -4,7 +4,6 @@ $apiKey = '7fd721dcb1e380f1092d7e8300f3857d';
 
 $city = readline("Enter the city name: ");
 
-// Construct the API URL - city and key elements
 $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey";
 
 // Initialize cURL session
@@ -13,7 +12,7 @@ $ch = curl_init($apiUrl);
 // Set cURL options
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-curl_setopt($ch, CURLOPT_CAINFO, 'C:/CA certificates/cacert.pem'); //manuāli lieku visu rindu, citādi rāda ssl error
+curl_setopt($ch, CURLOPT_CAINFO, 'C:/CA certificates/cacert.pem'); //I entered manual without I receive an error
 
 // Execute the cURL request
 $response = curl_exec($ch);
