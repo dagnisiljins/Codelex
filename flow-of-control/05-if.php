@@ -13,7 +13,7 @@ Hint: In switch-case, you can handle multiple cases by omitting the break statem
  */
 
 function convertToPhoneKeyPad($inputString) {
-    $inputString = strtoupper($inputString); // Convert the input to uppercase for case insensitivity
+    $inputString = strtoupper($inputString);
     $output = '';
 
     // Define a mapping of letters to numbers

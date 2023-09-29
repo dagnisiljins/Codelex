@@ -2,13 +2,12 @@
 
 function convertToPhoneKeyPad($inputString)
 {
-    $inputString = strtoupper($inputString); // Convert the input to uppercase for case insensitivity
+    $inputString = strtoupper($inputString);
     $output = '';
 
     for ($i = 0; $i < strlen($inputString); $i++) {
         $char = $inputString[$i];
 
-        // Use a switch-case statement to map letters to numbers
         switch ($char) {
             case 'A':
             case 'B':
@@ -61,13 +60,13 @@ function convertToPhoneKeyPad($inputString)
                 $repeat = ord($char) - ord('W') + 1;
                 break;
             default:
-                $digit = $char; // Handle other characters, like spaces or numbers
+                $digit = $char; // other characters
                 $repeat = 1;
                 break;
         }
 
         if ($i > 0 && $digit === $output[strlen($output) - 1]) {
-            $output .= ' '; // Insert a space to separate different digits
+            $output .= ' '; // separate different digits
         }
 
         $output .= str_repeat($digit, $repeat);
@@ -76,7 +75,7 @@ function convertToPhoneKeyPad($inputString)
     return $output;
 }
 
-// Prompt the user for input
+
 echo "Enter a string to convert to phone keypad digits: ";
 $userInput = readline();
 
