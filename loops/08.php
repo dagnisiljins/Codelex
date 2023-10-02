@@ -17,36 +17,21 @@ Max? 5
 
  */
 
-class NumberSquare {
-    public static function generateSquare() {
-        $min = intval(readline("Min? "));
-        $max = intval(readline("Max? "));
+class NumberSquare
+{
+    public static function createNumberSquare() {
+        $startNumber = intval(readline('Enter start number: '));
+        $endNumber = intval(readline('Enter end number: '));
+        $lines = $endNumber - $startNumber + 1;
 
-        //We initialize two nested for loops
-        for ($i = $min; $i <= $max; $i++) { //This loop controls the rows of the square
-            for ($j = $i; $j <= $max; $j++) { //this loop prints first line from min to max and then decrisess
-                //12345
-                //2345
-                //345
-                //45
-                //5
-
-               echo $j;
+        for ($i = 0; $i < $lines; $i++) {
+            for ($j = $startNumber; $j <= $endNumber; $j++) {
+                $number = ($i + $j - $startNumber) % $lines + $startNumber;
+                echo $number;
             }
-
-            for ($j = $min; $j < $i; $j++) { //second inner loop starts from min and goes up to
-                // the current value of i. It prints numbers from min to one less than
-                // the current row value, creating the wrap-around effect
-                //1
-                //12
-                //123
-                //1234
-                echo $j;
-            }
-
-            echo "\n";//after each line we enter line break
+            echo PHP_EOL;
         }
     }
 }
 
-NumberSquare::generateSquare();
+NumberSquare::createNumberSquare();

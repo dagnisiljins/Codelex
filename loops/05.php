@@ -9,26 +9,27 @@ point total. Here is an example dialogue where the user plays until rolling a 1,
 which ends the game with 0 points:
  */
 
-class Piglet {
-    public static function play() {
-        echo "Welcome to Piglet!\n";
+class Piglet
+{
+    public static function playPigletGame () {
+        echo 'Welcom to Piglet game!' . PHP_EOL;
         $totalScore = 0;
 
         while (true) {
             $roll = rand(1, 6);
-            echo "You rolled a $roll!\n";
+            echo 'You rolled ' . $roll . PHP_EOL;
 
-            if ($roll === 1) {
-                $totalScore = 0;
-                echo "You got 0 points.\n";
+            if ($roll == 1) {
+                echo 'Game over!';
                 break;
             } else {
                 $totalScore += $roll;
-                echo "Roll again(y to continue, n to end)? ";
-                $input = strtolower(trim(readline()));
+                echo 'Your total score: ' . $totalScore . PHP_EOL;
 
-                if ($input !== 'yes' && $input !== 'y') {
-                    echo "You got $totalScore points.\n";
+                $rollAgain = strtolower(readline('Do you  want to roll again (Press y to roll)?: '));
+
+                if ($rollAgain !== 'y') {
+                    echo 'Thank you for game. Your total score is: ' . $totalScore;
                     break;
                 }
             }
@@ -36,4 +37,4 @@ class Piglet {
     }
 }
 
-Piglet::play(); //accessing to the static method play() within the Piglet class
+Piglet::playPigletGame();

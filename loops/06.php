@@ -8,28 +8,27 @@
     ////********\\\\
     ****************
  */
-class AsciiFigure {
-   public static function drawFigure($size) {
-        for ($i = 0; $i < $size; $i++) {
-            // Draw left slashes
-            for ($j = $size - 1; $j > $i; $j--) {
-                echo "/";
+
+class AsciiFigure
+{
+    public static function drawAsciiFigure($figureRows) {
+        for ($i = 0; $i < $figureRows; $i++) {
+            for ($j = $figureRows - 1; $j > $i; $j--) { //pirmā rindā izdrukātais / skaits ir vienāds ar līniju skaitu - 1
+                echo '/';
+            }
+            for ($k = 0; $k < $i * 2; $k++) { //$i ir esošās rindas nummurs. pirmā rindā nevienu neizdrukā, pēc tam katrā rindā par vienu vairāk un reiz 2
+                echo '*';
+            }
+            for ($j = $figureRows - 1; $j > $i; $j--) { //tāds pats nosacījums kā 1. for loop
+                echo '\\';
             }
 
-            // Draw asterisks
-            for ($k = 0; $k < $i * 2; $k++) {
-                echo "*";
-            }
-
-            // Draw right slashes
-            for ($j = $size - 1; $j > $i; $j--) {
-                echo "\\";
-            }
-
-            echo PHP_EOL; // Move to the next line
+            echo PHP_EOL;
         }
+
     }
+
 }
 
-$size = intval(readline('Enter size: ')); //need to convert to integer, but work without as well
-AsciiFigure::drawFigure($size);
+$figureRows = (readline('Enter figure size in rows: '));
+AsciiFigure::drawAsciiFigure($figureRows);

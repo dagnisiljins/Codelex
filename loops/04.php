@@ -16,28 +16,27 @@ Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz 31 32 Fizz 34 Buzz Fizz 37 38 Fizz B
 61 62 Fizz 64 Buzz Fizz 67 68 Fizz Buzz 71 Fizz 73 74 FizzBuzz 76 77 Fizz 79 Buzz
 Fizz 82 83 Fizz Buzz 86 Fizz 88 89 FizzBuzz 91 92 Fizz 94 Buzz Fizz 97 98 Fizz Buzz
  */
+class FizzBuzz
+{
+    public static function printFizzBuzz($endNumber) {
+        for ($i = 1; $i <= $endNumber; $i++) {
 
-class FizzBuzz {
-    public static function printFizzBuzz($maxValue) {
-        for ($i = 1; $i <= $maxValue; $i++) {
             if ($i % 3 === 0 && $i % 5 === 0) {
-                echo "FizzBuzz ";
+                echo 'FizzBuzz ';
             } elseif ($i % 3 === 0) {
-                echo "Fizz ";
+                echo 'Fizz ';
             } elseif ($i % 5 === 0) {
-                echo "Buzz ";
+                echo 'Buzz ';
             } else {
-                echo $i . " ";
+                echo $i . ' ';
             }
 
             if ($i % 20 === 0) {
-                echo PHP_EOL; // new line after every 20 numbers
+                echo PHP_EOL;
             }
         }
     }
 }
 
-echo "Enter max value: ";
-$maxValue = intval(readline());
 
-FizzBuzz::printFizzBuzz($maxValue);
+FizzBuzz::printFizzBuzz($endNumber = readline('Enter end number: '));
