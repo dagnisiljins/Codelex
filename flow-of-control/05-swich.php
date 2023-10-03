@@ -10,66 +10,93 @@ function convertToPhoneKeyPad($inputString)
 
         switch ($char) {
             case 'A':
-            case 'B':
-            case 'C':
                 $digit = '2';
-                $repeat = ord($char) - ord('A') + 1;
+                break;
+            case 'B':
+                $digit = '22';
+                break;
+            case 'C':
+                $digit = '222';
                 break;
             case 'D':
-            case 'E':
-            case 'F':
                 $digit = '3';
-                $repeat = ord($char) - ord('D') + 1;
+                break;
+            case 'E':
+                $digit = '33';
+                break;
+            case 'F':
+                $digit = '333';
                 break;
             case 'G':
-            case 'H':
-            case 'I':
                 $digit = '4';
-                $repeat = ord($char) - ord('G') + 1;
+                break;
+            case 'H':
+                $digit = '44';
+                break;
+            case 'I':
+                $digit = '444';
                 break;
             case 'J':
-            case 'K':
-            case 'L':
                 $digit = '5';
-                $repeat = ord($char) - ord('J') + 1;
+                break;
+            case 'K':
+                $digit = '55';
+                break;
+            case 'L':
+                $digit = '555';
                 break;
             case 'M':
-            case 'N':
-            case 'O':
                 $digit = '6';
-                $repeat = ord($char) - ord('M') + 1;
+                break;
+            case 'N':
+                $digit = '66';
+                break;
+            case 'O':
+                $digit = '666';
                 break;
             case 'P':
-            case 'Q':
-            case 'R':
-            case 'S':
                 $digit = '7';
-                $repeat = ord($char) - ord('P') + 1;
+                break;
+            case 'Q':
+                $digit = '77';
+                break;
+            case 'R':
+                $digit = '777';
+                break;
+            case 'S':
+                $digit = '7777';
                 break;
             case 'T':
-            case 'U':
-            case 'V':
                 $digit = '8';
-                $repeat = ord($char) - ord('T') + 1;
+                break;
+            case 'U':
+                $digit = '88';
+                break;
+            case 'V':
+                $digit = '888';
                 break;
             case 'W':
-            case 'X':
-            case 'Y':
-            case 'Z':
                 $digit = '9';
-                $repeat = ord($char) - ord('W') + 1;
                 break;
+            case 'X':
+                $digit = '99';
+                break;
+            case 'Y':
+                $digit = '999';
+                break;
+            case 'Z':
+                $digit = '9999';
+                break;
+
             default:
                 $digit = $char; // other characters
-                $repeat = 1;
+
                 break;
         }
 
-        if ($i > 0 && $digit === $output[strlen($output) - 1]) {
-            $output .= ' '; // separate different digits
-        }
 
-        $output .= str_repeat($digit, $repeat);
+
+        $output .= '->' . $digit;
     }
 
     return $output;
@@ -81,5 +108,3 @@ $userInput = readline();
 
 $result = convertToPhoneKeyPad($userInput);
 echo "Phone keypad sequence: $result\n";
-
-
