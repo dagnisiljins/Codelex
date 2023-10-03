@@ -12,21 +12,23 @@ Hint: In switch-case, you can handle multiple cases by omitting the break statem
 
  */
 
-function convertToPhoneKeyPad($inputString) {
+function convertToPhoneKeyPad($inputString, $separator = '->') {
     $inputString = strtoupper($inputString);
     $output = '';
 
     // Define a mapping of letters to numbers
     $letterToNumber = [
-        'A' => '2', 'B' => '2', 'C' => '2',
-        'D' => '3', 'E' => '3', 'F' => '3',
-        'G' => '4', 'H' => '4', 'I' => '4',
-        'J' => '5', 'K' => '5', 'L' => '5',
-        'M' => '6', 'N' => '6', 'O' => '6',
-        'P' => '7', 'Q' => '7', 'R' => '7', 'S' => '7',
-        'T' => '8', 'U' => '8', 'V' => '8',
-        'W' => '9', 'X' => '9', 'Y' => '9', 'Z' => '9',
+        'A' => '2', 'B' => '22', 'C' => '222',
+        'D' => '3', 'E' => '33', 'F' => '333',
+        'G' => '4', 'H' => '44', 'I' => '444',
+        'J' => '5', 'K' => '55', 'L' => '555',
+        'M' => '6', 'N' => '66', 'O' => '666',
+        'P' => '7', 'Q' => '77', 'R' => '777', 'S' => '7777',
+        'T' => '8', 'U' => '88', 'V' => '888',
+        'W' => '9', 'X' => '99', 'Y' => '999', 'Z' => '9999',
     ];
+
+    $prevChar = null; // Initialize a variable to store the previous character
 
     for ($i = 0; $i < strlen($inputString); $i++) {
         $char = $inputString[$i];
@@ -34,14 +36,15 @@ function convertToPhoneKeyPad($inputString) {
         if (isset($letterToNumber[$char])) {
             $digit = $letterToNumber[$char];
 
-            // Calculate the number of times to repeat the digit based on its position in the alphabet
-            $repeat = ord($char) - ord('A') + 1;
-
-            if ($i > 0 && $digit === $output[strlen($output) - 1]) {
-                $output .= ' '; // Insert a space to separate different digits
+            if ($prevChar !== null && $char !== $prevChar) {
+                // If the current character is different from the previous character, add a separator
+                $output .= $separator;
             }
 
-            $output .= str_repeat($digit, $repeat);
+            $output .= $digit;
+
+            // Update the previous character
+            $prevChar = $char;
         } else {
             // Handle other characters, like spaces or numbers
             $output .= $char;
