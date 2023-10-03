@@ -1,5 +1,6 @@
 <?php
-/*Write a program which prints “Sunday”, “Monday”, ... “Saturday” if the int variable "dayNumber" is 0, 1, ..., 6, respectively. Otherwise, it shall print "Not a valid day".
+/*Write a program which prints “Sunday”, “Monday”, ... “Saturday” if the int variable "dayNumber"
+ is 0, 1, ..., 6, respectively. Otherwise, it shall print "Not a valid day".
 Use:
     a "nested-if" statement
     a "switch-case-default" statement.
