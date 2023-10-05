@@ -1,4 +1,6 @@
 <?php
+
+//read me
 class FuelGauge
 {
     private $fuel;

@@ -1,5 +1,5 @@
 <?php
-
+//lekcijas piemērs
 $color = 'blue';
 class Cup //Pascal case
 {
