@@ -13,11 +13,11 @@ class Movie
         $this->rating = $rating;
     }
 
-    public static function GetPG($movies) {
+    public static function GetPG($movies, string $rating = 'PG') {
         $pgMovies = [];
 
         foreach ($movies as $movie) {
-            if ($movie->rating === 'PG') {
+            if ($movie->rating === $rating) {
                 $pgMovies[] = $movie;
             }
         }
@@ -35,8 +35,9 @@ $movieTwo = new Movie('Glass', 'Buena Vista International', 'PG13');
 $movieThree = new Movie('Spider-Man: Into the Spider-Verse', 'Columbia Pictures', 'PG');
 
 $movies = [$movieOne, $movieTwo, $movieThree];
+$rating = readline('Enter search raiting: ');
 
-$pgMovies = Movie::GetPG($movies);
+$pgMovies = Movie::GetPG($movies, $rating);
 
 foreach ($pgMovies as $pgMovie) {
     /**
