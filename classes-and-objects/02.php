@@ -28,13 +28,13 @@ class Point
 
     public function swapPoints(Point $p1, Point $p2) {
         $tempX = $p1->getX();
-        $tempY = $p1->getY();
+        $tempY = $p1->getY(); //saglabājam pagaidu mainīgajaos p1 punkta x un y vērtības
 
         $p1->setX($p2->getX());
-        $p1->setY($p2->getY());
+        $p1->setY($p2->getY()); //uzsetojam p1 jaunās vērtības, kas ir paņemtas(get) no p2 punkta
 
         $p2->setX($tempX);
-        $p2->setY($tempY);
+        $p2->setY($tempY); //uzsetojam p2 vērtības no iepriekš saglabātajiem pagaidu mainīgajiem.
     }
 }
 

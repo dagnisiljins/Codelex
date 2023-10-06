@@ -6,7 +6,7 @@ class Cup //Pascal case
     // [encapsulation] [data type] [name] [value]
     // public/private/protected - ja nezina kas, tad jāliek privat
 
-    private string $color = 'red'; //noklusējuma vērtība ir public, tad to var no ārpuses nomainīt un var izvadīt vērtības
+    private string $color = 'red'; //operties/Fields. Iespējama noklusējuma vērtība, var būt bez, vērtību var no ārpuses nomainīt un var izvadīt vērtības ar construktor palīdzību(Public gadījumā bez constructor)
     public function __construct(string $color) // vienmēr sākas ar __, klasē funkcija ir rezervēta, viņa izsauksies, kad izmantos new. klases ietvaros var būt tikai viens constructor.
     {
         $this->color = $color; //šādi mēs iedodam citu krāsu, norādam uz iepriekš klasē definēto private string $color = 'red'
