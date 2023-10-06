@@ -39,6 +39,9 @@ $movies = [$movieOne, $movieTwo, $movieThree];
 $pgMovies = Movie::GetPG($movies);
 
 foreach ($pgMovies as $pgMovie) {
+    /**
+     * @var Movie $pgMovie
+     */
     echo $pgMovie->getInfo();
 }
 

@@ -1,5 +1,5 @@
 <?php
-
+// šeit testa klase ir jāizdzēš
 class Date {
     private $month;
     private $day;
@@ -40,23 +40,16 @@ class Date {
     }
 }
 
-class DateTest {
-    public static function main() {
-        $date = new Date(10, 15, 2023);
 
-        echo "Date: " . $date->displayDate() . PHP_EOL;
+$date = new Date(10, 15, 2023);
 
-        $date->setMonth(8);
-        $date->setDay(20);
-        $date->setYear(2024);
+echo "Date: " . $date->displayDate() . PHP_EOL;
 
-        echo "Updated Date: " . $date->displayDate() . PHP_EOL;
+$date->setMonth(8);
+$date->setDay(20);
+$date->setYear(2024);
 
-
-    }
-}
-
-DateTest::main();
+echo "Updated Date: " . $date->displayDate() . PHP_EOL;
 
 $date = new Date(12, 24, 2023);
 
