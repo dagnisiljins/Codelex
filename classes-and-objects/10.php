@@ -39,13 +39,6 @@ class Video
             $this->submissionsCount++;
         }
     }
-    /*public function receiveRating(float $rating): void
-    {
-
-        if ($rating >= 1 && $rating <= 5) {
-            $this->averageRating = ($this->averageRating + $rating) / count();
-        }
-    } */
 
     public function getAverageRating(): float
     {
