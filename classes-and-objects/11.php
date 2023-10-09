@@ -42,7 +42,7 @@ $AccountPersonB->deposit(readline('How much do you want to deposit: ')) . PHP_EO
 echo $AccountPersonB . PHP_EOL;
 echo '---------------------------------' . PHP_EOL;
 //3
-$AccountPersonC = new Account(readline('Enter persons C name: '), 0.0);
+$AccountPersonC = new Account(readline('Enter persons C name: '), 0);
 $AccountPersonC->deposit(readline('How much do you want to deposit: ')) . PHP_EOL;
 echo $AccountPersonC . PHP_EOL;
 echo '---------------------------------' . PHP_EOL;

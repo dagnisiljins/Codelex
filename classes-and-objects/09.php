@@ -22,9 +22,9 @@ class BankAccount
 }
 
 $accounts = [
-    new BankAccount('Benson', 17.25),
-    new BankAccount('Jeramy', 1000.35),
-    new BankAccount('Clark', -0.47)
+    new BankAccount('Dagnis', 17.25),
+    new BankAccount('Janis', 1000.35),
+    new BankAccount('Niks', -0.47)
     ];
 
 foreach ($accounts as $account) {
