@@ -24,7 +24,7 @@ class Episode
 
     public function receiveRating(float $rating): void
     {
-        if ($rating >= 1 && $rating <= 5) {
+        if ($rating >= 1 && $rating <= 10) {
             $this->averageRating = ($this->averageRating * $this->submissionsCount + $rating) / ($this->submissionsCount + 1);
             $this->submissionsCount++;
         }
@@ -43,17 +43,16 @@ class VideoStore
     public function listEpisodes(): void
     {
         $episodes = json_decode(file_get_contents('https://rickandmortyapi.com/api/episode'));
-        $id = 1; // Unique ID counter
+        $id = 1;
 
         if (empty($episodes->results)) {
-            echo "No episodes found in the API response." . PHP_EOL;
+            echo "No episodes found." . PHP_EOL;
             return;
         } else {
             foreach ($episodes->results as $episode) {
                 $newEpisode = new Episode($id, $episode->name);
                 $this->inventory[] = $newEpisode;
 
-                // Assign random ratings within the range (1-10)
                 $randomRating = rand(1, 10);
                 $newEpisode->receiveRating($randomRating);
                 $id++;
@@ -74,25 +73,26 @@ class Application
     public function __construct()
     {
         $this->videoStore = new VideoStore();
-        $this->videoStore->listEpisodes(); // Fetch episodes and store them in the inventory
+        $this->videoStore->listEpisodes();
     }
 
     function run()
     {
         while (true) {
-            echo "Choose the operation you want to perform \n";
-            echo "Choose 0 for EXIT\n";
-            echo "Choose 1 to list episodes\n";
-            echo "Choose 2 to rate an episode\n";
+            echo  "------------------------------------------------------------------\n";
+            echo "Enter 0 for EXIT\n";
+            echo "Enter 1 to list episodes\n";
+            echo "Enter 2 to rate an episode\n";
 
-            $command = (int)readline();
+            $command = (int)readline("Choose the operation you want to perform: ");
+            echo  "------------------------------------------------------------------\n";
 
             switch ($command) {
                 case 0:
                     echo "Bye!";
                     die;
                 case 1:
-                    $this->listEpisodes(); // List episodes from the inventory
+                    $this->listEpisodes();
                     break;
                 case 2:
                     $this->rateEpisode();
@@ -108,30 +108,39 @@ class Application
         echo "Episodes List:" . PHP_EOL;
         $episodes = $this->videoStore->getInventory();
         foreach ($episodes as $id => $episode) {
-            echo "ID: " . ($id + 1) . PHP_EOL; // Adding 1 to $id to display a 1-based ID
+            echo "ID: " . ($id + 1) . PHP_EOL;
             echo "Episode Name: " . $episode->getName() . PHP_EOL;
-            echo "Average Rating: " . round($episode->getAverageRating()) . PHP_EOL; // Rounding to the nearest integer
+            echo "Average Rating: " . round($episode->getAverageRating()) . PHP_EOL;
             echo '--------------------------------------------------' . PHP_EOL;
         }
     }
 
     private function rateEpisode()
     {
-        echo "Enter episode ID to rate: ";
-        $id = (int)readline();
+        $id = (int)readline("Enter episode ID (1-20) to rate: ");
 
         if ($id < 1 || $id > count($this->videoStore->getInventory())) {
             echo "Invalid episode ID. Please enter a valid ID." . PHP_EOL;
             return;
         }
 
-        echo "Enter your rating (1-10): ";
-        $rating = (float)readline();
+        while (true) {
+            $episode = $this->videoStore->getInventory()[$id - 1];
+            $rating = (float)readline("Enter your rating (1-10) for episode '{$episode->getName()}': ");
+            $episode->receiveRating($rating);
 
-        $episode = $this->videoStore->getInventory()[$id - 1];
-
-        $episode->receiveRating($rating);
-        echo "You rated '" . $episode->getName() . "' with $rating stars." . PHP_EOL;
+            if ($rating > 10) {
+                echo "Maximum rate is 10\n";
+            } elseif ($rating < 1) {
+                echo "Minimum rate is 1\n";
+            } elseif ($rating <= 7) {
+                echo "You rated '" . $episode->getName() . "' with $rating stars." . PHP_EOL;
+                break;
+            } else {
+                echo "Great! You rated '{$episode->getName()}' with $rating stars, which is a very high rating!\n";
+                break;
+            }
+        }
     }
 }
 
