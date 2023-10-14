@@ -97,7 +97,7 @@ class Application
     {
         $this->videoStore = new VideoStore();
         $this->videoStore->listEpisodes();
-        $this->loadRatings(); // Load ratings when the application is constructed
+        $this->loadRatings();
     }
 
     function run()
