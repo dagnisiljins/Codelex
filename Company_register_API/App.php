@@ -2,9 +2,11 @@
 class App {
 
     private $searchResultsHandler;
+    private $companySearch;
 
     public function __construct() {
         $this->searchResultsHandler = new SearchResultsHandler();
+        $this->companySearch = new CompanySearch('25e80bf3-f107-4ab4-89ef-251b5b9374e9');
     }
 
     public function run() {
@@ -35,15 +37,15 @@ class App {
         }
     }
 
-   private function searchCompany() {
+    private function searchCompany() {
         $searchParameter = readline('Enter search parameter: ');
 
         $this->searchResultsHandler->saveSearchParameter($searchParameter);
 
-        $companies = json_decode(file_get_contents('https://data.gov.lv/dati/lv/api/3/action/datastore_search?q=' . urlencode($searchParameter) . '&resource_id=25e80bf3-f107-4ab4-89ef-251b5b9374e9'));
+        $companies = $this->companySearch->search($searchParameter);
 
-        if (!empty($companies) && isset($companies->result->records)) {
-            $this->displaySearchResults($companies->result->records);
+        if (!empty($companies)) {
+            $this->displaySearchResults($companies);
         } else {
             echo "No matching companies found.\n";
         }
