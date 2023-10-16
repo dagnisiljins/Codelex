@@ -1,5 +1,5 @@
 <?php
-
+// šajā piemērā iesniegtais reitings pēc App aizveršanas tiek saglabāts jason failā, lai atverot no jauna būtu saglabāti iepriekš iesniegtie reitingi.
 class Episode
 {
     private int $id;
