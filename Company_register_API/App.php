@@ -1,15 +1,15 @@
 <?php
 class App {
 
-    private $searchResultsHandler;
-    private $companySearch;
+    private SearchResultsHandler $searchResultsHandler;
+    private CompanySearch $companySearch;
 
     public function __construct() {
         $this->searchResultsHandler = new SearchResultsHandler();
         $this->companySearch = new CompanySearch('25e80bf3-f107-4ab4-89ef-251b5b9374e9');
     }
 
-    public function run() {
+    public function run(): void {
         echo "Welcome to the Company Search App\n";
 
         while (true) {
@@ -18,7 +18,7 @@ class App {
             echo "2. View previously searched parameters\n";
             echo "3. Quit\n";
 
-            $choice = readline('Enter your choice: ');
+            $choice = (int)readline('Enter your choice: ');
             echo "------------------------------------------------------------\n";
 
             switch ($choice) {
@@ -37,7 +37,7 @@ class App {
         }
     }
 
-    private function searchCompany() {
+    private function searchCompany(): void {
         $searchParameter = readline('Enter search parameter: ');
 
         $this->searchResultsHandler->saveSearchParameter($searchParameter);
@@ -51,7 +51,7 @@ class App {
         }
     }
 
-    private function displaySearchResults($companies) {
+    private function displaySearchResults(array $companies): void {
         foreach ($companies as $company) {
             echo "Name: " . $company->name_in_quotes . PHP_EOL;
             echo "Type: " . $company->type_text . PHP_EOL;
@@ -63,7 +63,7 @@ class App {
         }
     }
 
-    private function viewSearchedCompanies() {
+    private function viewSearchedCompanies(): void {
         $searchParameters = $this->searchResultsHandler->getSearchParameters();
 
         if (!empty($searchParameters)) {
